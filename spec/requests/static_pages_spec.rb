@@ -5,14 +5,18 @@ describe "Static pages" do
   describe "Home page" do
 
     it "should have the content 'Messages'" do
-      #get static_pages_home_path
       visit '/static_pages/home'
       expect(page).to have_content('Messages')
     end
 
-    it "should have the right title" do
+    it "should have the base title" do
       visit '/static_pages/home'
-      expect(page).to have_title("Welcome to Messages | Home")
+      expect(page).to have_title("Welcome to Messages")
+    end
+
+    it "should have a custom page title" do
+      visit '/static_pages/home'
+      expect(page).to have_title('| Home')
     end
   end
 
