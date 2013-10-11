@@ -1,4 +1,5 @@
 <% provide(:title, @user.name) %>
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 <div class="row">
   <aside class="span4">
     <section>
@@ -6,6 +7,7 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
+      <%= pie_chart({"Football" => 10, "Basketball" => 5}) %>
     </section>
   </aside>
 </div>
