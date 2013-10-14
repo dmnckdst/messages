@@ -6,8 +6,11 @@
       <h1>
         <%= gravatar_for @user %>
         <%= @user.name %>
+        <% if current_user.admin? && !current_user?(user) %>
+    | <%= link_to "delete", user, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+        <% end %>
       </h1>
-      <%= pie_chart({"Football" => 10, "Basketball" => 5}) %>
     </section>
   </aside>
 </div>
